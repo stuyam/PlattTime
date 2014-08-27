@@ -3,6 +3,8 @@ var ampm = 0;
 var minute = 0;
 var second = 0;
 var shirt = 0;
+var saveHour = 100;
+var currentHour = 0;
 
 $(document).ready(function(){
 	startTime();
@@ -17,24 +19,25 @@ function startTime(){
 	minute = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
 	second = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
 	$('h2').text(((d.getHours() + 11) % 12 + 1) + ':' + minute + ':' + second + ' ' + ampm);
+	currentHour = d.getHours();
 
-	if(d.getHours() <= 8 || d.getHours() == 9)
+	if(currentHour <= 8 || currentHour == 9)
 	{
 		shirt = 1;
 	}
-	else if(d.getHours() == 10 || d.getHours() == 11)
+	else if(currentHour == 10 || currentHour == 11)
 	{
 		shirt = 2;
 	}
-	else if(d.getHours() == 12 || d.getHours() == 13)
+	else if(currentHour == 12 || currentHour == 13)
 	{
 		shirt = 3;
 	}
-	else if(d.getHours() == 14 || d.getHours() == 15)
+	else if(currentHour == 14 || currentHour == 15)
 	{
 		shirt = 4;
 	}
-	else if(d.getHours() == 16 || d.getHours() == 17)
+	else if(currentHour == 16 || currentHour == 17)
 	{
 		shirt = 5;
 	}
@@ -43,7 +46,11 @@ function startTime(){
 		shirt = 6;
 	}
 
-	$('#shirt').attr('src', 'img/' + shirt + '.png');
+	if(saveHour != currentHour)
+	{
+		$('#shirt').attr('src', 'img/' + shirt + '.png');
+	}
+	saveHour = currentHour
 	setTimeout(startTime, 1000);
 }
 
