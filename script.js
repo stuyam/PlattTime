@@ -4,7 +4,9 @@ var minute = 0;
 var second = 0;
 
 $(document).ready(function(){
-	$('h1').addClass('animated bounceInDown');
+	$('#top h1').addClass('animated bounceInDown');
+	$('h2').addClass('animated bounceInUp');
+	$('#shirt').addClass('animated fadeIn');
 	startTime();
 });
 
@@ -16,3 +18,12 @@ function startTime(){
 	$('h2').text(((d.getHours() + 11) % 12 + 1) + ':' + minute + ':' + second + ' ' + ampm);
 	setTimeout(startTime, 1000);
 }
+
+// $(window).scroll(function(){
+// 	$('#shirt').css('-webkit-filter', 'blur(' + map_range($('#spacing').offset().top - $(window).scrollTop(), 0, $('#spacing').offset().top, 10, 0) + 'px)');
+// 	//console.log($('#spacing').offset().top - $(window).scrollTop());
+// });
+
+// function map_range(value, low1, high1, low2, high2) {
+//     return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+// }
