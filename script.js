@@ -21,33 +21,32 @@ function startTime(){
 	$('h2').text(((d.getHours() + 11) % 12 + 1) + ':' + minute + ':' + second + ' ' + ampm);
 	currentHour = d.getHours();
 
-	if(currentHour <= 8 || currentHour == 9)
-	{
-		shirt = 1;
-	}
-	else if(currentHour == 10 || currentHour == 11)
-	{
-		shirt = 2;
-	}
-	else if(currentHour == 12 || currentHour == 13)
-	{
-		shirt = 3;
-	}
-	else if(currentHour == 14 || currentHour == 15)
-	{
-		shirt = 4;
-	}
-	else if(currentHour == 16 || currentHour == 17)
-	{
-		shirt = 5;
-	}
-	else
-	{
-		shirt = 6;
-	}
-
 	if(saveHour != currentHour)
 	{
+		if(currentHour <= 8 || currentHour == 9)
+		{
+			shirt = 1;
+		}
+		else if(currentHour == 10 || currentHour == 11)
+		{
+			shirt = 2;
+		}
+		else if(currentHour == 12 || currentHour == 13)
+		{
+			shirt = 3;
+		}
+		else if(currentHour == 14 || currentHour == 15)
+		{
+			shirt = 4;
+		}
+		else if(currentHour == 16 || currentHour == 17)
+		{
+			shirt = 5;
+		}
+		else
+		{
+			shirt = 6;
+		}
 		$('#shirt').attr('src', 'img/' + shirt + '.png');
 	}
 	saveHour = currentHour
